@@ -1,13 +1,13 @@
 # Computer-Use Agents as Judges for Automatic GUI Design
 
-<p align="right">
+<!-- <p align="right">
   <b>English</b>
-</p>
+</p> -->
 
-<p align="center">
+<!-- <p align="center">
   <b>AUI: Computer-Use Agents as Judges for Automatic GUI Design</b><br>
   Apps → Tasks from Agents → CUA Execution → Code Fix by Agents → Revised Apps
-</p>
+</p> -->
 
 <p align="center">
   <a href="#-overview">📘 Overview</a> &nbsp; | &nbsp;
