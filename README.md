@@ -46,10 +46,10 @@
 AUI is a framework for evaluating agent‑generated web apps end to end.
 
 Pipeline:
-- Stage 0 (prep): generate initial websites (multi‑model, parallel) and 30 tasks per app (GPT‑5).
+- Stage 0 (preparation): generate initial websites (multi‑model, parallel) and 30 tasks per app (GPT‑5).
 - Stage 1 (Metric 1): judge extracts task–state rules on initial websites.
 - Stage 2 (Metric 2): CUA executes only supported tasks; oracle evaluation is rule‑based (no VLM fallback).
-- Stage 3 (Metric 3): revise initial websites into revised versions based on failures and unsupported tasks, then re‑judge and re‑CUA.
+- Stage 3 (Metric 3.1 & 3.2): revise initial websites into revised versions based on failures and unsupported tasks, then re‑judge and re‑CUA.
 
 Principles:
 - Parallel by default (#models × #apps), terminal grid status.
@@ -64,7 +64,7 @@ Run the following commands from this directory (the one containing the stage scr
 
 ### 1. Requirements
 - Use Python 3.10+ in an isolated environment (e.g., `conda create -n ui python=3.10` then `conda activate ui`).
-- Local model servers expected by `configs/models.yaml`:
+- Local model servers expected by `configs/models.yaml`, using [VLLM](https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html) to deploy the models is recommended.
   - Qwen2.5‑VL‑72B (commenter ablation): `http://localhost:8000/v1`
   - Qwen3‑Coder‑30B (coder): `http://localhost:8001/v1`
   - UI‑TARS 1.5 7B (CUA): `http://localhost:8002/v1`
