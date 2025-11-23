@@ -134,10 +134,8 @@ a:hover {
 .title,
 .subtitle {
   color: #0f172a !important;
-  font-family: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Monaco,
-    Consolas, "Courier New", monospace !important;
-  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  font-family: Calibri, "SF Pro Text", "Segoe UI", system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif !important;
 }
 
 h1,
@@ -602,6 +600,8 @@ body.mode-agent h4,
 body.mode-agent h5,
 body.mode-agent h6 {
   color: #0f172a !important;
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Monaco,
+    Consolas, "Courier New", monospace !important;
 }
 
 body.mode-agent .content p {
