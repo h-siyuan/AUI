@@ -34,9 +34,13 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <div class="aui-mode-toggle" role="group" aria-label="View mode">
-            <button type="button" class="aui-mode-button is-active" data-mode="human">For human</button>
-            <button type="button" class="aui-mode-button" data-mode="agent">For agent</button>
+          <div class="aui-mode-toggle" aria-label="View mode">
+            <span class="aui-mode-switch-label aui-mode-switch-label-human">For human</span>
+            <label class="aui-mode-switch">
+              <input type="checkbox" id="aui-mode-switch-input" aria-label="Toggle agent view">
+              <span class="aui-mode-switch-slider"></span>
+            </label>
+            <span class="aui-mode-switch-label aui-mode-switch-label-agent">For agent</span>
           </div>
           <div class="title-header">
             <h1 class="title publication-title is-bold">
@@ -290,23 +294,19 @@
   <script>
     (function () {
       var bodyEl = document.body;
-      var modeButtons = document.querySelectorAll(".aui-mode-toggle .aui-mode-button");
-      if (modeButtons.length && bodyEl) {
-        modeButtons.forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            var mode = btn.getAttribute("data-mode") || "human";
-            if (mode === "agent") {
-              bodyEl.classList.add("mode-agent");
-              bodyEl.classList.remove("mode-human");
-            } else {
-              bodyEl.classList.add("mode-human");
-              bodyEl.classList.remove("mode-agent");
-            }
-            modeButtons.forEach(function (b) {
-              b.classList.toggle("is-active", b === btn);
-            });
-          });
-        });
+      var modeSwitch = document.getElementById("aui-mode-switch-input");
+      if (modeSwitch && bodyEl) {
+        var applyMode = function () {
+          if (modeSwitch.checked) {
+            bodyEl.classList.add("mode-agent");
+            bodyEl.classList.remove("mode-human");
+          } else {
+            bodyEl.classList.add("mode-human");
+            bodyEl.classList.remove("mode-agent");
+          }
+        };
+        modeSwitch.addEventListener("change", applyMode);
+        applyMode();
       }
 
       const models = ["gpt5", "qwen", "gpt4o", "gemini3"];
