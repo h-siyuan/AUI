@@ -6,11 +6,6 @@
 </p> -->
 
 <p align="center">
-  <a href="#overview">📘 Overview</a> &nbsp; | &nbsp;
-  <a href="#quick-start">🚀 Quick Start</a> &nbsp; | &nbsp;
-  <a href="#data-layout">🗂️ Data Layout</a> &nbsp; | &nbsp;
-  <a href="#metrics-components">📏 Metrics & Components</a>
-  <br>
   <a href="https://huggingface.co/spaces/showlab/AUI">🤗 Hugging Face</a> &nbsp; | &nbsp;
   <a href="https://arxiv.org/abs/2511.15567">📄 Paper</a> &nbsp; | &nbsp;
   <a href="https://showlab.github.io/AUI">🌐 Project Website</a> &nbsp; | &nbsp;
@@ -22,19 +17,6 @@
 - [x] [2025.11.20] HuggingFace Demo is released.
 - [x] [2025.11.19] Arxiv paper is released.
 - [x] [2025.10.30] Code is released.
-
----
-
-### Table of Contents
-- [📘 Overview](#overview)
-- [🚀 Quick Start](#quick-start)
-  - [1. Requirements](#1-requirements)
-  - [2. Configure Models](#2-configure-models)
-  - [3. Run Pipeline](#3-run-pipeline)
-- [🗂️ Data Layout](#data-layout)
-- [📏 Metrics & Components](#metrics-components)
-- [📖 Citation](#-citation)
-- [🙏 Acknowledgements](#-acknowledgements)
 
 ---
 
