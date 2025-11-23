@@ -87,7 +87,7 @@
               </span>
               <span class="link-block">
                 <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/spaces/showlab/AUI" target="_blank">
-                  <span>Benchmark</span>
+                  <span>Demo</span>
                 </a>
               </span>
               <span class="link-block">
@@ -247,8 +247,8 @@
           </div>
           <div class="aui-leaderboard-bars">
             <div class="aui-leaderboard-toggle">
-              <button type="button" data-metric="fc" class="is-active">Function Completeness</button>
-              <button type="button" data-metric="sr">CUA Success Rate</button>
+              <button type="button" data-metric="fc">Function Completeness</button>
+              <button type="button" data-metric="sr" class="is-active">CUA Success Rate</button>
             </div>
             <div id="aui-leaderboard-chart" class="aui-leaderboard-chart"></div>
           </div>
@@ -523,7 +523,7 @@
       };
 
       var chart = echarts.init(chartRoot);
-      var currentMetric = "fc";
+      var currentMetric = "sr";
 
       function buildOption(metric) {
         var coderNames = leaderboardData.map(function (row) {
