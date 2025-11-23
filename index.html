@@ -154,20 +154,26 @@
             <br>
             Each screenshot shows initial vs agent-optimized UI across four coder models (GPT-5, Qwen3-Coder-30B, GPT-4o, Gemini-3-Pro).
           </p>
-          <div class="aui-gallery-app-header">
-            <button type="button" class="button aui-gallery-nav-button" id="aui-gallery-prev">
-              &larr; Prev app
+          <div class="aui-gallery-mode-toggle">
+            <button type="button" class="button aui-gallery-mode-button is-active" data-mode="human">
+              For Human
             </button>
-            <div class="aui-gallery-app-title" id="aui-gallery-app-title"></div>
-            <button type="button" class="button aui-gallery-nav-button" id="aui-gallery-next">
-              Next app &rarr;
+            <button type="button" class="button aui-gallery-mode-button" data-mode="agent">
+              For Agent
             </button>
           </div>
+          <div class="aui-gallery-app-title" id="aui-gallery-app-title"></div>
         </div>
       </div>
       <div class="columns is-centered">
-        <div class="column is-four-fifths">
+        <div class="column is-four-fifths aui-gallery-grid-row">
+          <button type="button" class="button aui-gallery-nav-side" id="aui-gallery-prev">
+            &larr;
+          </button>
           <div id="aui-gallery-grid" class="aui-gallery-grid"></div>
+          <button type="button" class="button aui-gallery-nav-side" id="aui-gallery-next">
+            &rarr;
+          </button>
           <div id="aui-gallery-task-box" class="aui-gallery-qa-box"></div>
           <div id="aui-gallery-overlays"></div>
         </div>
