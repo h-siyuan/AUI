@@ -14,7 +14,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Headings closer to VCode style */
 .title,
 .subtitle {
   color: #0f172a !important;
@@ -39,7 +38,6 @@ h6 {
   color: inherit;
 }
 
-/* Buttons - VCode style */
 .button {
   background-color: #111827 !important;
   color: #f9fafb !important;
@@ -212,7 +210,6 @@ h6 {
   border: none;
 }
 
-/* AUI gallery (flat grid, VCode-style cards on top of command-line theme) */
 .aui-gallery-section {
   margin-top: 3rem;
 }
@@ -321,7 +318,6 @@ h6 {
   color: #9ca3af;
 }
 
-/* QA-style task box under gallery (VCode-inspired) */
 .aui-gallery-qa-box {
   margin-top: 1.25rem;
   text-align: left;
