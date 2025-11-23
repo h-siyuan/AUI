@@ -29,11 +29,16 @@
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 </head>
 
-<body class="theme-human">
+<body class="mode-human">
   <section class="hero">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
+          <div class="aui-mode-toggle">
+            <span class="aui-mode-label">View:</span>
+            <button type="button" class="button aui-mode-button is-active" data-mode="human">For human</button>
+            <button type="button" class="button aui-mode-button" data-mode="agent">For agent</button>
+          </div>
           <div class="title-header">
             <h1 class="title publication-title is-bold">
               <span>Computer-Use Agents as Judges for Generative User Interface</span>
@@ -97,10 +102,6 @@
                 </a>
               </span>
             </div>
-            <div class="aui-theme-toggle">
-              <button type="button" class="button aui-theme-button is-active" data-theme="human">For human</button>
-              <button type="button" class="button aui-theme-button" data-theme="agent">For agent</button>
-            </div>
           </div>
         </div>
       </div>
@@ -156,7 +157,7 @@
           <p class="caption">
             We introduce <strong>AUI-Gym</strong>, a benchmark of 52 applications with 1560 tasks. 
             <br>
-            Each screenshot shows initial vs agent-optimized UI across four coder models (GPT-5, Qwen3-Coder-30B, GPT-4o, Gemini-3-Pro).
+            Each screenshot shows initial vs agent-optimized UI across individual coder.
           </p>
           <div class="aui-gallery-app-title" id="aui-gallery-app-title"></div>
         </div>
@@ -167,14 +168,12 @@
             <button type="button" class="button aui-gallery-arrow" id="aui-gallery-prev" aria-label="Previous app">
               &larr;
             </button>
-            <div>
-              <div id="aui-gallery-grid" class="aui-gallery-grid"></div>
-              <div id="aui-gallery-task-box" class="aui-gallery-qa-box"></div>
-            </div>
+            <div id="aui-gallery-grid" class="aui-gallery-grid"></div>
             <button type="button" class="button aui-gallery-arrow" id="aui-gallery-next" aria-label="Next app">
               &rarr;
             </button>
           </div>
+          <div id="aui-gallery-task-box" class="aui-gallery-qa-box"></div>
           <div id="aui-gallery-overlays"></div>
         </div>
       </div>
@@ -292,19 +291,19 @@
   <script>
     (function () {
       var bodyEl = document.body;
-      var themeButtons = document.querySelectorAll(".aui-theme-toggle .aui-theme-button");
-      if (themeButtons.length && bodyEl) {
-        themeButtons.forEach(function (btn) {
+      var modeButtons = document.querySelectorAll(".aui-mode-toggle .aui-mode-button");
+      if (modeButtons.length && bodyEl) {
+        modeButtons.forEach(function (btn) {
           btn.addEventListener("click", function () {
-            var theme = btn.getAttribute("data-theme") || "human";
-            if (theme === "agent") {
-              bodyEl.classList.add("theme-agent");
-              bodyEl.classList.remove("theme-human");
+            var mode = btn.getAttribute("data-mode") || "human";
+            if (mode === "agent") {
+              bodyEl.classList.add("mode-agent");
+              bodyEl.classList.remove("mode-human");
             } else {
-              bodyEl.classList.add("theme-human");
-              bodyEl.classList.remove("theme-agent");
+              bodyEl.classList.add("mode-human");
+              bodyEl.classList.remove("mode-agent");
             }
-            themeButtons.forEach(function (b) {
+            modeButtons.forEach(function (b) {
               b.classList.toggle("is-active", b === btn);
             });
           });
