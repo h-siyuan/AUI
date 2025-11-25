@@ -396,25 +396,25 @@
             return resp.text();
           })
           .then(function (text) {
-            var lines = text.split(/\r?\n/);
-            var inPrompt = false;
-            var promptLines = [];
-            for (var i = 0; i < lines.length; i++) {
-              var line = lines[i];
-              var trimmed = line.trim();
-              if (!inPrompt) {
-                if (trimmed === "prompt: |" || trimmed === "prompt:|") {
-                  inPrompt = true;
-                }
-              } else {
-                if (trimmed && !line.startsWith(" ") && !line.startsWith("\t")) {
-                  break;
-                }
-                var stripped = line.replace(/^\s*/, "");
-                promptLines.push(stripped);
-              }
+            var match = text.match(/prompt:\s*\|([\s\S]*?)(?:\n[^\s]|$)/);
+            var promptBlock = match && match[1] ? match[1] : "";
+            var promptText = "";
+            if (promptBlock) {
+              var lines = promptBlock.split(/\r?\n/);
+              // drop leading empty line
+              if (lines.length && lines[0].trim() === "") lines.shift();
+              var indent = lines
+                .filter(function (l) { return l.trim().length > 0; })
+                .reduce(function (min, l) {
+                  var m = l.match(/^\s*/)[0].length;
+                  return min === null ? m : Math.min(min, m);
+                }, null);
+              if (indent === null) indent = 0;
+              promptText = lines
+                .map(function (l) { return l.slice(indent); })
+                .join("\n")
+                .trim();
             }
-            var promptText = promptLines.join("\n").trim();
             if (!promptText) {
               taskBox.innerHTML = "";
               return;
