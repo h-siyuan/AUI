@@ -502,9 +502,21 @@
         if (index >= apps.length) index = 0;
         currentIndex = index;
         var app = apps[currentIndex];
-        renderApp(app);
-
-        loadTaskPrompt(app);
+        if (grid) {
+          grid.classList.add("is-sliding-out");
+        }
+        window.setTimeout(function () {
+          renderApp(app);
+          loadTaskPrompt(app);
+          if (grid) {
+            grid.classList.remove("is-sliding-out");
+            grid.classList.add("is-sliding-in");
+            // allow transition to run before cleanup
+            requestAnimationFrame(function () {
+              grid.classList.remove("is-sliding-in");
+            });
+          }
+        }, 140);
       }
 
       if (prevBtn) {
