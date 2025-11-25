@@ -4,12 +4,11 @@ body {
   position: relative;
   overflow-x: hidden;
   background:
-    radial-gradient(120% 90% at 15% 10%, rgba(199, 210, 254, 0.55), transparent 55%),
-    radial-gradient(120% 90% at 80% 0%, rgba(125, 211, 252, 0.45), transparent 60%),
-    radial-gradient(100% 80% at 50% 65%, rgba(165, 243, 252, 0.35), transparent 60%),
-    linear-gradient(180deg, #f8fafc 0%, #e0f2fe 50%, #f8fafc 100%);
-  backdrop-filter: blur(4px);
-  color: #0f172a;
+    radial-gradient(32% 30% at 18% 18%, rgba(80, 146, 255, 0.22), transparent 55%),
+    radial-gradient(38% 34% at 78% 22%, rgba(67, 217, 173, 0.2), transparent 60%),
+    radial-gradient(45% 38% at 52% 78%, rgba(141, 104, 255, 0.18), transparent 65%),
+    linear-gradient(180deg, #0b1021 0%, #0d1229 45%, #0b1021 100%);
+  color: #e8edf7;
 }
 
 body::before,
@@ -31,18 +30,14 @@ body::before {
 }
 
 body::after {
-  opacity: 0.7;
+  opacity: 0.35;
   mix-blend-mode: screen;
-  background: repeating-linear-gradient(
-    120deg,
-    rgba(59, 130, 246, 0.28) 0%,
-    rgba(59, 130, 246, 0.28) 12%,
-    rgba(255, 255, 255, 0) 16%,
-    rgba(255, 255, 255, 0) 30%
-  );
-  filter: blur(6px);
-  background-size: 200px 260px;
-  background-position: 0 0;
+  background:
+    linear-gradient(90deg, rgba(120, 162, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(120, 162, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(67, 217, 173, 0.08) 0%, rgba(67, 217, 173, 0) 65%);
+  background-size: 120px 120px, 120px 120px, 100% 100%;
+  background-position: 0 0, 0 0, 0 0;
 }
 
 .hero,
@@ -122,7 +117,7 @@ body.theme-agent .table tbody tr:hover {
 }
 
 a {
-  color: #2563eb;
+  color: #60a5fa;
   text-decoration: none;
 }
 
@@ -132,7 +127,7 @@ a:hover {
 
 .title,
 .subtitle {
-  color: #0f172a !important;
+  color: #e9f2ff !important;
   font-family: Calibri, "SF Pro Text", "Segoe UI", system-ui, -apple-system,
     BlinkMacSystemFont, sans-serif !important;
 }
@@ -143,7 +138,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #0f172a !important;
+  color: #e9f2ff !important;
 }
 
 /* Sections */
