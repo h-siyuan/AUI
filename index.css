@@ -28,7 +28,6 @@ body::before {
     radial-gradient(40% 35% at 20% 25%, rgba(125, 211, 252, 0.6), transparent 60%),
     radial-gradient(35% 30% at 80% 20%, rgba(199, 210, 254, 0.55), transparent 60%),
     radial-gradient(55% 45% at 50% 70%, rgba(165, 243, 252, 0.5), transparent 65%);
-  animation: auiFlowA 14s ease-in-out infinite alternate;
 }
 
 body::after {
@@ -43,7 +42,7 @@ body::after {
   );
   filter: blur(6px);
   background-size: 200px 260px;
-  animation: auiStreak 8s linear infinite;
+  background-position: 0 0;
 }
 
 .hero,
