@@ -396,12 +396,16 @@
             return resp.text();
           })
           .then(function (text) {
-            var match = text.match(/prompt:\s*\|([\s\S]*?)(?:\n[^\s]|$)/);
-            var promptBlock = match && match[1] ? match[1] : "";
             var promptText = "";
-            if (promptBlock) {
-              var lines = promptBlock.split(/\r?\n/);
-              // drop leading empty line
+            var matchPrimary = text.match(/prompt:\s*\|([\s\S]*?)\n[a-zA-Z0-9_-]+:/);
+            var matchFallback = text.match(/prompt:\s*\|([\s\S]*)/);
+            var block = matchPrimary && matchPrimary[1]
+              ? matchPrimary[1]
+              : matchFallback && matchFallback[1]
+              ? matchFallback[1]
+              : "";
+            if (block) {
+              var lines = block.split(/\r?\n/);
               if (lines.length && lines[0].trim() === "") lines.shift();
               var indent = lines
                 .filter(function (l) { return l.trim().length > 0; })
@@ -416,7 +420,9 @@
                 .trim();
             }
             if (!promptText) {
-              taskBox.innerHTML = "";
+              taskBox.innerHTML =
+                '<div class="aui-gallery-qa-question"><span class="aui-gallery-qa-qtag">Task</span></div>' +
+                '<div class="aui-gallery-qa-answer">Task prompt missing.</div>';
               return;
             }
             var safe = promptText
